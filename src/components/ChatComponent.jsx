@@ -200,6 +200,7 @@ function ChatComponent({ signOut,user }) {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${localStorage.getItem(`CognitoIdentityServiceProvider.${import.meta.env.VITE_USER_POOL_CLIENT_ID}.${user_id}.idToken`)}`,
               },
              mode:'cors',
               body: JSON.stringify({user_id:user.username, get_sessions:'true'})
@@ -237,6 +238,7 @@ function ChatComponent({ signOut,user }) {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${localStorage.getItem(`CognitoIdentityServiceProvider.${import.meta.env.VITE_USER_POOL_CLIENT_ID}.${user_id}.idToken`)}`,
               },
              mode:'cors',
               body: JSON.stringify({user_id:userid,chat_id:chatid,get_session_history:'true'})
@@ -332,6 +334,7 @@ function ChatComponent({ signOut,user }) {
                       method: 'POST',
                       headers: {
                           'Content-Type': 'application/json',
+                          'Authorization': `Bearer ${localStorage.getItem(`CognitoIdentityServiceProvider.${import.meta.env.VITE_USER_POOL_CLIENT_ID}.${user_id}.idToken`)}`,
                       },
                      mode:'cors',
                       body: JSON.stringify({user_msg: inputMessage +' '+ pdfText,user_id:user.username, chat_id:chatsessionid,user_model:inputModel})
@@ -398,6 +401,7 @@ function ChatComponent({ signOut,user }) {
     }
   };
   
+ 
   const handleDelete = async (e,chatid,title) =>{
    e.stopPropagation(); // Prevent triggering selectChat on delete click
    const chat_id=chatid+'#'+title
@@ -411,6 +415,7 @@ function ChatComponent({ signOut,user }) {
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json',
+                      'Authorization': `Bearer ${localStorage.getItem(`CognitoIdentityServiceProvider.${import.meta.env.VITE_USER_POOL_CLIENT_ID}.${user_id}.idToken`)}`,
                   },
                  mode:'cors',
                   body: JSON.stringify({user_id:user.username,chat_id:chat_id,delete_chat:'true'})
