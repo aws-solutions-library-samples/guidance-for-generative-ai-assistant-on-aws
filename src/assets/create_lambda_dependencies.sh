@@ -2,7 +2,7 @@
 
 # Default values
 DEFAULT_LAYER_NAME="genai-assistant-layer"
-DEFAULT_S3_BUCKET="my-s3-bucket"
+DEFAULT_S3_BUCKET="salaunch"
 DEFAULT_S3_KEY="genai-assistant-layer.zip"
 DEFAULT_RUNTIME="python3.9"
 LAYER_FOLDER="python"
